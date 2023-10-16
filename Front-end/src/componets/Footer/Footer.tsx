@@ -1,5 +1,5 @@
 import React from 'react';
-import './../../index.css'
+import './../../index.css';
 
 
 const Footer = () => {return (
@@ -14,13 +14,13 @@ const Footer = () => {return (
   
         <form className="mt-6">
           <div className="relative max-w-lg">
-            <label className="sr-only" for="email"> Email </label>
+            <label className="sr-only"> Email </label>
   
             <input
               className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium"
               id="email"
               type="email"
-              placeholder="valeria_stromkova@mail.ru"
+              placeholder="deryugin_gleb@mail.ru"
             />
   
             <button
@@ -99,7 +99,7 @@ const Footer = () => {return (
           <a
             href="#"
             className="text-white underline transition hover:text-purple-300/75"
-            >Стромковой Валерией</a
+            >Дерюгиным Глебом</a
           >
         </p>
         <p className="text-center text-white underline transition hover:text-purple-300/75">
