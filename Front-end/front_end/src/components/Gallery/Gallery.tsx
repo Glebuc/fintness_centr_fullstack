@@ -1,13 +1,6 @@
 import React from 'react';
 import './../../index.css';
-import Gallery1 from '../img/gallery1.jpg';
-import Gallery2 from '../img/gallery2.webp';
-import Gallery3 from '../img/gallery3.jpg'
-import Gallery4 from '../img/gallery4.png';
-import Gallery5 from '../img/gallery5.jpg';
-import Gallery6 from '../img/gallery6.webp';
-import Gallery7 from '../img/gallery7.jpg';
-import Gallery8 from '../img/gallery8.jpg';
+
 
 
 const Photo = () => {
@@ -26,35 +19,35 @@ const Photo = () => {
                       
                       
                       >
-                          <img src={Gallery1} alt="img1" />
+                          <img src="../img/gallery1.jpg" alt="img1" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery2} alt="img2" />
+                        <img src="../img/gallery2.webp" alt="img2" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery3} alt="img3" />
+                        <img src="../img/gallery3.jpg" alt="img3" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery4} alt="img4" />
+                        <img src="../img/gallery4.png" alt="img4" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery5} alt="img5" />
+                        <img src="../img/gallery5.jpg" alt="img5" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery6} alt="img6" />
+                        <img src="../img/gallery6.webp" alt="img6" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery7} alt="img7" />
+                        <img src="../img/gallery7.jpg" alt="img7" />
                       </div>
           
                       <div className="w-full hover:scale-110">
-                        <img src={Gallery8} alt="img8" />
+                        <img src="../img/gallery8.jpg" alt="img8" />
                       </div>
                   </div>
               </div>

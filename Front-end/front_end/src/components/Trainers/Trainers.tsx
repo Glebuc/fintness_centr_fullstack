@@ -1,11 +1,6 @@
 import React from 'react';
 import './../../index.css';
-import Trainer1 from '../img/trainer1.jpg';
-import Trainer2 from '../img/trainer2.avif';
-import Trainer3 from '../img/trainer3.avif'
-import Trainer4 from '../img/trainer4.jpg';
-import Trainer5 from '../img/trainer5.jpg';
-import Trainer6 from '../img/trainer6.jpg';
+
 
 interface MyComponentProps {
   id: string;
@@ -27,7 +22,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer1}
+                src="../img/trainer1.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             
@@ -54,7 +49,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer2}
+                src="../img/trainer2.avif"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             
@@ -81,7 +76,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer3}
+                src="../img/trainer3.avif"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             
@@ -109,7 +104,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer4}
+                src="../img/trainer4.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             
@@ -136,7 +131,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer5}
+                src="../img/trainer5.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             
@@ -163,7 +158,7 @@ return (
               <a href="#" className="group relative block bg-black">
               <img
                 alt="Trainer"
-                src={Trainer6}
+                src="../img/trainer6.jpg"
                 className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"
               />
             

@@ -1,8 +1,7 @@
 import { Link } from "react-scroll";
-import {StickyContainer, Sticky} from 'react-sticky';
+import { StickyContainer, Sticky } from 'react-sticky';
 import React from 'react';
 import './../../index.css'
-import { ReactComponent as Logo } from './../img/logo.svg';
 
 
 const SiteHeader = () => {
@@ -14,7 +13,7 @@ return (
     <div className="flex items-center gap-4">
       <div className='logo'>
         <Link to="/" spy={true} smooth={true} offset={50} duration={500}>
-          <Logo />
+          <img src="./../img/logo.svg" alt="" />
         </Link>
         </div>
     </div>

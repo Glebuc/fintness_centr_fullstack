@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import './../../index.css'
-import { ReactComponent as DescriptImg } from './../img/gym-svgrepo-com.svg';
 
 interface MyComponentProps {
   id: string;
@@ -27,7 +26,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-          <DescriptImg/>
+          <img src="./../img/gym-svgrepo-com.svg" alt="" />
           <h2 className="mt-4 text-xl font-bold text-white">ТРЕНАЖЕРНЫЙ ЗАЛ</h2>
   
           <p className="mt-1 text-sm text-gray-300">
@@ -39,7 +38,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-        <DescriptImg/>
+        <img src="./../img/gym-svgrepo-com.svg" alt="" />
   
           <h2 className="mt-4 text-xl font-bold text-white">ГРУППОВОЙ ФИТНЕС</h2>
   
@@ -52,7 +51,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-       <DescriptImg/>
+       <img src="./../img/gym-svgrepo-com.svg" alt="" />
   
           <h2 className="mt-4 text-xl font-bold text-white">ЕДИНОБОРСТВА</h2>
   
@@ -65,7 +64,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-        <DescriptImg/>
+        <img src="./../img/gym-svgrepo-com.svg" alt="" />
   
           <h2 className="mt-4 text-xl font-bold text-white">ДЕТСКИЕ ТРЕНИРОВКИ</h2>
   
@@ -78,7 +77,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-        <DescriptImg/>
+        <img src="./../img/gym-svgrepo-com.svg" alt="" />
           <h2 className="mt-4 text-xl font-bold text-white">ФИТНЕС-БАР</h2>
   
           <p className="mt-1 text-sm text-gray-300">
@@ -90,7 +89,7 @@ const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
           className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-purple-800/20"
           href="#"
         >
-        <DescriptImg/>
+        <img src="./../img/gym-svgrepo-com.svg" alt="" />
   
           <h2 className="mt-4 text-xl font-bold text-white">САЛОН КРАСОТЫ</h2>
   
