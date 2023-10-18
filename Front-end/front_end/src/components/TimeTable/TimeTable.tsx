@@ -2,9 +2,12 @@ import React from 'react';
 import './../../index.css';
 
 
+interface MyComponentProps {
+  id: string;
+}
 
 
-const TimeTable = () => {
+const TimeTable:React.FC<MyComponentProps> = ({ id }) => {
 return (
     <section className="bg-gray-800 text-white" id='time'>
     <div

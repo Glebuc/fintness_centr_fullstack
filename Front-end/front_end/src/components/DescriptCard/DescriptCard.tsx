@@ -3,8 +3,13 @@ import React from 'react';
 import './../../index.css'
 import { ReactComponent as DescriptImg } from './../img/gym-svgrepo-com.svg';
 
+interface MyComponentProps {
+  id: string;
+}
 
-const DescriptCard = () => {return (
+
+
+const DescriptCard: React.FC<MyComponentProps> = ({ id }) => {return (
     <section className="bg-gray-800 text-white">
     <div
       className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8" id="services"

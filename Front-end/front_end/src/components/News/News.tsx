@@ -1,10 +1,14 @@
 import React from 'react';
 import './../../index.css';
-import NewsImg from '../img/news.jpg';
 
 
+interface MyComponentProps {
+  id: string;
+}
 
-const Main = () => {
+const trainerImage = require('../img/news.jpg');
+
+const Main :React.FC<MyComponentProps> = ({ id }) => {
 return (
     <section className="text-gray-400 bg-gray-900 body-font overflow-hidden" id="pricing">
     <div className="container px-5 py-24 mx-auto">
@@ -20,7 +24,7 @@ return (
               <div className="relative h-64 sm:h-80 lg:h-full">
                 <img
                   alt="Gym"
-                  src={NewsImg}
+                  src={trainerImage.default}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>
