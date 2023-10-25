@@ -1,6 +1,6 @@
 import React from 'react';
 import './../../index.css';
-
+import TrainersCard from './TrainersCard';
 
 interface MyComponentProps {
   id: string;

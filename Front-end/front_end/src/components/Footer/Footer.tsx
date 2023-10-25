@@ -2,7 +2,7 @@ import React from 'react';
 import './../../index.css';
 
 
-const Footer = () => {return (
+const Footer: React.FC = () => {return (
 <footer aria-label="Site Footer" className="bg-gray-800">
     <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-md">
@@ -37,6 +37,8 @@ const Footer = () => {return (
           <p className="mt-4 text-center text-white lg:text-left lg:text-lg">
             В здоровм теле - здоровый дух                                      
           </p>
+
+
         </div>
   
         <div
@@ -98,9 +100,8 @@ const Footer = () => {return (
           Сайт разработан
           <a
             href="#"
-            className="text-white underline transition hover:text-purple-300/75"
-            >Дерюгиным Глебом</a
-          >
+            className="text-white transition hover:text-purple-300/75"
+            ><br /> (-___-)</a>
         </p>
         <p className="text-center text-white underline transition hover:text-purple-300/75">
             <a href="#" className="">Перейти в админ. панель</a>

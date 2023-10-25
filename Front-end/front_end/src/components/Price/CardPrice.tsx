@@ -2,6 +2,18 @@ import React from 'react';
 import './../../index.css';
 import { title } from 'process';
 
+
+interface CardPrice {
+    name: string;
+    price: number;
+    altImage: string;
+    period: string; // либо "меясц" либо "год"
+    listDescription: string[];
+  }
+  
+
+
+
 const CardPrice:React.FC = () => {
     return (
         <div className="p-4 xl:w-1/4 md:w-1/2 w-full">
@@ -21,7 +33,8 @@ const CardPrice:React.FC = () => {
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" className="w-3 h-3" viewBox="0 0 24 24">
                     <path d="M20 6L9 17l-5-5"></path>
                     </svg>
-                </span>Ограничение по времени 4 часа
+                </span>
+                Ограничение по времени 4 часа
                 </p>
                 <p className="flex items-center text-gray-400 mb-2">
                 <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-purple-500 text-white rounded-full flex-shrink-0">
