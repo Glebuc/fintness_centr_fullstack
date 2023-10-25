@@ -6,7 +6,6 @@ interface MyComponentProps {
   id: string;
 }
 
-const trainerImage = require('../img/news.jpg');
 
 const Main :React.FC<MyComponentProps> = ({ id }) => {
 return (
@@ -24,7 +23,7 @@ return (
               <div className="relative h-64 sm:h-80 lg:h-full">
                 <img
                   alt="Gym"
-                  src={trainerImage.default}
+                  src="/img/news.jpg"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </div>

@@ -22,5 +22,11 @@
   },
   "include": [
     "src/**/*.ts", "src/**/*.tsx"
-  ]
+  ],
+  "baseUrl": "./src",
+  "paths": {
+    "@components/*": ["./components/*"],
+    "@myStyles": ["style.css"],
+    "@img": ["public/img/*"]
+  }
 }

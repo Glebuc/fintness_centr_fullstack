@@ -1,7 +1,7 @@
 import { Route, Link } from 'react-router-dom'
 import SiteHeader from './components/Header/Header';
 import Main from './components/Main/Main';
-import DescriptCard from './components/DescriptCard/DescriptCard';
+import DescriptCardList from './components/DescriptCard/DescriptCardList';
 import Photo from './components/Gallery/Gallery';
 import TimeTable from './components/TimeTable/TimeTable';
 import Trainers from './components/Trainers/Trainers';
@@ -20,7 +20,7 @@ const App = () => {
     <div>
     <SiteHeader />
     <Main/>
-    <DescriptCard id="services"/>
+    <DescriptCardList id="services"/>
     <Photo/>
     <TimeTable id="time"/>
     <Trainers id="trainers"/>
