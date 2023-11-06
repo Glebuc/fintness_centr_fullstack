@@ -24,6 +24,7 @@ const Trainers = sequelize.define('trainers', {
 })
 
 const Athletics = sequelize.define('athletics', {
+    id_athletics: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     duration: {type: DataTypes.TIME, comment:"Продолжительность тренировки"},
     time_training: {type: DataTypes.STRING, unique: true, comment:"Время тренировки"},
 })
@@ -34,12 +35,12 @@ const typeTraining = sequelize.define('type_training', {
 })
 
 const dayWeek = sequelize.define('day_week', {
-    number_day_week: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, comment:"Номер дня недели"},
+    id_day_week: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, comment:"Номер дня недели"},
     day_week: {type: DataTypes.STRING, allowNull:false, comment:"День недели"}
 })
 
 const Gym = sequelize.define('gyms', {
-    number_gyms: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, comment:"Номер зала"},
+    id_gym: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, comment:"Номер зала"},
     name_gyms: {type: DataTypes.STRING, allowNull:false, comment:"Название зала"}
 })
 
@@ -49,7 +50,42 @@ const News = sequelize.define('news', {
     descript_news: {type: DataTypes.STRING, allowNull:false, comment:"Описание новости"},
 })
 
-// Добавить пару моделей для учета кошелька и абонементов пользователя
+
+const Abonement = sequelize.define('abonement', {
+    id_abonement: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    start_date: {type: DataTypes.DATEONLY, comment:"Начало абонемента" },
+    end_date: {type: DataTypes.DATEONLY, comment:"Конец абонемента" }
+})
+
+const typeAbonement = sequelize.define('type_abonemnt', {
+    id_type_abonement: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    type_abonement: {type: DataTypes.STRING, allowNull:false},
+    price_abonement: {type: DataTypes.INTEGER, allowNull:false}
+}
+)
+
+
 
 Trainers.hasMany(User)
 User.belongsTo(Trainers)
+
+Trainers.hasMany(Athletics)
+Athletics.belongsTo(Trainers)
+
+dayWeek.hasMany(Athletics)
+Athletics.belongsTo(dayWeek)
+
+Gym.hasMany(Athletics)
+Athletics.belongsTo(Gym)
+
+typeTraining.hasMany(Athletics)
+Athletics.belongsTo(typeTraining)
+
+User.hasOne(Abonement)
+Abonement.belongsTo(User)
+
+User.hasMany(News)
+News.belongsTo(User)
+
+typeAbonement.hasMany(Abonement)
+Abonement.belongsTo(typeAbonement)
