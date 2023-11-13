@@ -1,8 +1,17 @@
+const ApiError = require("../error/Error")
+const {User} = require('../models/models')
+
 class AdminController {
-    async create(req, res) {
+    async add(req, res, next) {
 
     }
-    async getAll(req, res) {
+    async update(req, res, next) {
+        
+    }
+    async delete(req, res, next) {
+        
+    }
+    async delete(req, res, next) {
         
     }
 }

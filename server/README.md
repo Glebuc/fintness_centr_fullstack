@@ -8,4 +8,4 @@ docker image build -t express-i:latest .
 
 docker run -it -p 5000:5000 --name express-exam express-i:latest
 
-На порту 5000 localhost, Вам будет доступен сайт "Фитнес-центра Саров"
+На порту 5000 localhost (по умолчанию), Вам будет доступен сайт "Фитнес-центра Саров"
