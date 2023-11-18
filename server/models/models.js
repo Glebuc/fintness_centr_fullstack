@@ -34,7 +34,7 @@ const typeTraining = sequelize.define('type_training', {
     type_training: {type: DataTypes.STRING, allowNull:false}
 })
 
-const dayWeek = sequelize.define('day_week', {
+const dayWeek = sequelize.define('day_weeks', {
     id_day_week: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, comment:"Номер дня недели"},
     day_week: {type: DataTypes.STRING, allowNull:false, comment:"День недели"}
 })
@@ -48,6 +48,7 @@ const News = sequelize.define('news', {
     id_news: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title_news: {type: DataTypes.STRING, unique: true, allowNull:false, comment:"Заголовок новости"},
     descript_news: {type: DataTypes.STRING, allowNull:false, comment:"Описание новости"},
+    img: {type: DataTypes.STRING, allowNull:false}
 })
 
 
@@ -89,3 +90,70 @@ News.belongsTo(User)
 
 typeAbonement.hasMany(Abonement)
 Abonement.belongsTo(typeAbonement)
+
+
+
+async function addDayWeek() {
+  // Добавление дней недели в базу данных
+  const daysOfWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+  daysOfWeek.forEach(async (day) => {
+    try {
+      
+      const [result, created] = await dayWeek.findOrCreate({
+        where: { day_week: day },
+      });
+
+      if (created) {
+        console.log(`День недели "${day}" успешно добавлен.`);
+      } else {
+        console.log(`День недели "${day}" уже существует в базе данных.`);
+      }
+    } catch (error) {
+      console.error(`Ошибка при добавлении дня недели "${day}": ${error.message}`);
+    }
+  });
+}
+
+async function addGyms() {
+  // Добавление залов в базу данных
+  const gymsData = ["Общий зал", "Зал Йоги", "Зал MMA", "Зал групповых тренировок"]
+
+  gymsData.forEach(async (gym) => {
+      try {
+        const [result, created] = await Gym.findOrCreate({
+          where: { name_gyms: gym },
+        });
+    
+        if (created) {
+          console.log(`Тренировочный зал "${gym}" успешно добавлен.`);
+        } else {
+          console.log(`Такой тренировочный зал "${gym}" уже существует в базе данных.`);
+        }
+      } catch (error) {
+        console.error(`Ошибка при добавлении тренировочного зала "${gym}": ${error.message}`);
+      }
+    });
+}
+
+// async function isTableExist(tableName) {
+//   try {
+//     const tables = await sequelize.getQueryInterface().showAllTables();
+//     console.log("БД создана ")
+//     return tables.includes(tableName);
+//   } catch (error) {
+//     console.error('Ошибка при проверке таблицы:', error);
+//     return false;
+//   }
+// }
+
+module.exports = {
+    User,
+    Trainers,
+    Abonement,
+    Athletics,
+    typeAbonement,
+    Gym,
+    News,
+    typeTraining
+}
