@@ -115,6 +115,8 @@ async function addDayWeek() {
   });
 }
 
+
+
 async function addGyms() {
   // Добавление залов в базу данных
   const gymsData = ["Общий зал", "Зал Йоги", "Зал MMA", "Зал групповых тренировок"]
@@ -146,6 +148,9 @@ async function addGyms() {
 //     return false;
 //   }
 // }
+addDayWeek()
+addGyms()
+
 
 module.exports = {
     User,
