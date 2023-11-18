@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: ./client
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: gleb
+      POSTGRES_DB: fitness_center
+    networks:
+      - app-network
+    ports:
+      - "5434:5434"
+
+  express-app:
+    build:
+      context: ./server
+    ports:
+      - "7000:7000"
+    networks:
+      - app-network
+    depends_on:
+      - "postgres-db"
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,4 +1,4 @@
-import { Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import SiteHeader from './components/Header/Header';
 import Main from './components/Main/Main';
 import DescriptCardList from './components/DescriptCard/DescriptCardList';
@@ -9,6 +9,8 @@ import Price from './components/Price/Price';
 import News from './components/News/News';
 import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFoundPage/Page404'
+
+
 
 
 
