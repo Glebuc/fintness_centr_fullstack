@@ -4,7 +4,7 @@ import './../../index.css';
 
 
 
-const Main = () => {
+const MainCover = () => {
 return (
     <main
   className="relative bg-[url(https://kartinkin.net/uploads/posts/2021-07/1626345485_11-kartinkin-com-p-trenazhernii-zal-fon-krasivo-21.jpg)] bg-cover bg-center bg-no-repeat"
@@ -50,5 +50,5 @@ return (
 );
 };
 
-export default Main;
+export default MainCover;
 

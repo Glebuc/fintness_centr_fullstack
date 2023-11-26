@@ -3,7 +3,7 @@ import './../../index.css';
 
 
 
-const TimeTable = () => {
+const Page404 = () => {
 return (
     <div className="flex flex-col h-screen bg-gray-800">
     <img
@@ -36,5 +36,5 @@ return (
   </div>
 
 )}
-export default TimeTable;
+export default Page404;
 

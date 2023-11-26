@@ -1,12 +1,12 @@
 import Header from '../components/Header/Header';
 
 
-const Sign = () => {
+const SignIn = () => {
   return (
     <div>
     <Header/>
-    <h1>Страница регистрации</h1>
+    <h1>Страница авторизации</h1>
   </div>
 )}
 
-export default Sign;
+export default SignIn;

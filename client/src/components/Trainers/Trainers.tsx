@@ -7,6 +7,7 @@ interface MyComponentProps {
 }
 
 
+
 const Trainers :React.FC<MyComponentProps> = ({ id }) => {
 return (
     <section>
