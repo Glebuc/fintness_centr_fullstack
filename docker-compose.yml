@@ -18,7 +18,7 @@ services:
     networks:
       - app-network
     ports:
-      - "5434:5434"
+      - "5434:5432"
 
   express-app:
     build:

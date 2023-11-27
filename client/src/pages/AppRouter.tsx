@@ -5,6 +5,7 @@ import SignUp from './SignUpPage'
 import Main from './MainPage'
 import UserPanel from './UserPanelPage'
 import News from './NewsPage'
+import NotFound from './NotFoundPage'
 const AppRouter = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const AppRouter = () => {
             <Route path='/' element={<Main/>}/>
             <Route path='/user' element={<UserPanel/>}/>
             <Route path='/news' element={<News/>}/>
+            <Route path='*' element={<NotFound/>} />
         </Routes>
     </div>
   )

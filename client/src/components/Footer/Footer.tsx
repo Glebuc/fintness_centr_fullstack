@@ -103,9 +103,6 @@ const Footer: React.FC = () => {return (
             className="text-white transition hover:text-purple-300/75"
             ><br /> (-___-)</a>
         </p>
-        <p className="text-center text-white underline transition hover:text-purple-300/75">
-            <a href="#" className="">Перейти в админ. панель</a>
-        </p>     
       </div>
     </div>
   </footer>

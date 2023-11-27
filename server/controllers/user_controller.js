@@ -1,7 +1,7 @@
 const ApiError = require("../error/Error")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {User} = require('../models/models')
+const {User, Abonement} = require('../models/models')
 
 
 
@@ -19,7 +19,7 @@ class UserController {
         }
         const secretPassword = await bcrypt.hash(password_user, 5)
         const user = await User.create({password_user: secretPassword, phone_user, gender_user, fio_user, email_user, age_user, is_admin})
-
+        const basket = await Abonement.create({userIdUser: user.id_user})
         const token = jwt.sign(
             {user_id:user.id_user, email_user, is_admin}, 
             process.env.SECRET_KEY, {expiresIn:'24h'}
@@ -49,11 +49,7 @@ class UserController {
 
 
     async check(req, res, next) {
-        const {id_user} = req.query
-        if (!id_user) {
-            return next(ApiError.badRequest("Не задан ID"))
-        }
-        res.json(id_user)
+       res.json({message:"Все работает"})
     }
 }
 

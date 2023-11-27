@@ -44,7 +44,7 @@ return (
                 </p>
       
                 <a
-                  href="/news.html"
+                  href="/news"
                   className="mt-8 inline-block rounded border border-purple-800 bg-purple-800 px-12 py-3 text-sm font-medium text-white hover:bg-purple-900 hover:text-white focus:outline-none focus:ring active:text-indigo-500"
                 >
                   Перейти в раздел новостей
