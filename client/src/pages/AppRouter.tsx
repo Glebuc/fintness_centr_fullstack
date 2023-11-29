@@ -6,16 +6,25 @@ import Main from './MainPage'
 import UserPanel from './UserPanelPage'
 import News from './NewsPage'
 import NotFound from './NotFoundPage'
+import TimeTable from './TimeTablePage'
+import Trainers from './TrainersPage'
+import Layout from '../components/Layout/Layout'
+
+
 const AppRouter = () => {
   return (
     <div>
         <Routes>
-            <Route path='/login' element={<SignIn/>}/>
-            <Route path='/registration' element={<SignUp/>}/>
-            <Route path='/' element={<Main/>}/>
-            <Route path='/user' element={<UserPanel/>}/>
-            <Route path='/news' element={<News/>}/>
-            <Route path='*' element={<NotFound/>} />
+            <Route path='/' element={<Layout/>}>
+              <Route path='/login' element={<SignIn/>}/>
+              <Route path='/registration' element={<SignUp/>}/>
+              <Route path='/' element={<Main/>}/>
+              <Route path='/user' element={<UserPanel/>}/>
+              <Route path='/news' element={<News/>}/>
+              <Route path='/trainers' element={<Trainers/>}/>
+              <Route path='/time' element={<TimeTable/>}/>
+              <Route path='*' element={<NotFound/>} />
+            </Route>
         </Routes>
     </div>
   )

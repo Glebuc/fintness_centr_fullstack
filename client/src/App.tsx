@@ -1,4 +1,3 @@
-import { Routes, Route, Link } from 'react-router-dom'
 import AppRouter from "./pages/AppRouter";
 
 
@@ -11,7 +10,7 @@ import AppRouter from "./pages/AppRouter";
 const App = () => {
   return (
     <div>
-    <AppRouter/>
+      <AppRouter />
   </div>
   );
 }

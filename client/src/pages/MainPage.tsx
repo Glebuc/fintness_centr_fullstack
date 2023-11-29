@@ -11,7 +11,6 @@ import Footer from '../components/Footer/Footer';
 
 const Main = () => (
     <div>
-        <SiteHeader />
         <MainCover/>
         <DescriptCardList id="services"/>
         <Photo/>
@@ -19,7 +18,6 @@ const Main = () => (
         <Trainers id="trainers"/>
         <Price/>
         <News id="news"/>
-        <Footer/>
     </div>
     )
 

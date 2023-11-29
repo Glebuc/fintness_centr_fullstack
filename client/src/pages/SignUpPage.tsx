@@ -5,7 +5,6 @@ import Header from '../components/Header/Header';
 const SignUp = () => {
   return (
     <div className="bg-purple-600">
-    <Header/>
     <section>
     <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-3 lg:py-16 lg:px-8 lg:grid lg:min-h-screen lg:grid-cols-12">
       <aside

@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link } from 'react-router-dom'
 import React from 'react';
 import './../../index.css'
 
@@ -11,19 +11,19 @@ return (
       className="flex gap-9 lg:text-xs font-bold lg:uppercase lg:tracking-wide text-white"
     >
 
-      <a href="/news"
+      <Link to="/news"
         className="block h-16 border-b-4 border-transparent leading-[4rem] cursor-pointer hover:border-purple-700 hover:border-purple-700"
       >
         Новости
-      </a>
+      </Link>
 
-      <Link to="trainers" spy={true} smooth={true} offset={50} duration={500}
+      <Link to="/trainers"
         className="block h-16 border-b-4 border-transparent leading-[4rem] cursor-pointer hover:border-purple-700 hover:border-purple-700"
       >
         Тренера
       </Link>
 
-      <Link to="time" spy={true} smooth={true} offset={50} duration={500}
+      <Link to="/time" 
         className="block h-16 border-b-4 border-transparent leading-[4rem] cursor-pointer hover:border-purple-700 hover:border-purple-700"
       >
         Расписание
@@ -33,12 +33,12 @@ return (
     <div className="flex items-center ">
       <div className="flex items-center divide-x divide-gray-100 justify-center  bg-purple-700">
         <span>
-          <a
-            href="/registration"
-            className="block border-b-4 border-transparent p-2 text-white font-bold hover:bg-purple-600"
+          <Link
+            to="/registration"
+            className="block border-b-4 border-transparent p-2 cursor-pointer text-white font-bold hover:bg-purple-600"
           >
              Регистрация
-          </a>
+          </Link>
         </span>
       </div>
     </div>
