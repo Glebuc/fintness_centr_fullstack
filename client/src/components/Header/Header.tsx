@@ -1,4 +1,3 @@
-import { Link } from "react-scroll";
 import { StickyContainer, Sticky } from 'react-sticky';
 import React from 'react';
 import './../../index.css';

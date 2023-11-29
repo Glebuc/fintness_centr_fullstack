@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import React from 'react';
 import './../../index.css'
 
@@ -7,9 +7,9 @@ const Logo:React.FC = () => {
 return (
     <div className="flex items-center gap-4">
       <div className='logo'>
-        <a href="/">
+        <Link to="/">
           <img src="/img/logo.svg" className="w-10 cursor-pointer" alt="" />
-        </a>
+        </Link>
         </div>
     </div>
 );

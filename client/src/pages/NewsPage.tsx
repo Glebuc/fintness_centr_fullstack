@@ -6,8 +6,8 @@ import Footer from '../components/Footer/Footer';
 const News = () => {
   return (
     <div>
-      <Header/>
-      <section className="mb-12 text-gray-800">
+     
+      <section className="m-12 text-gray-800">
     <div className="block rounded-lg shadow-lg bg-white">
       <div className="flex flex-wrap items-center">
         <div className="hidden lg:flex grow-0 shrink-0 basis-auto lg:w-6/12 xl:w-4/12">
@@ -36,7 +36,7 @@ const News = () => {
       </div>
     </div>
   </section>
-      <Footer/>
+      
     </div>
   );
 }
