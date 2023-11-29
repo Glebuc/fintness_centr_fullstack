@@ -8,17 +8,21 @@ services:
       - app-network
     ports:
       - "3000:3000"
+    depends_on:
+      - express-app
 
   postgres-db:
-    image: postgres
+    image: postgres:latest
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: gleb
       POSTGRES_DB: fitness_center
+      POSTGRES_HOST_AUTH_METHOD: trust
     networks:
       - app-network
     ports:
       - "5434:5432"
+
 
   express-app:
     build:
@@ -28,7 +32,11 @@ services:
     networks:
       - app-network
     depends_on:
-      - "postgres-db"
+      - postgres-db
+    environment:
+      DB_HOST: postgres-db
+      DB_PORT: 5432
+      NODE_OPTIONS: --max_old_space_size=8096
 
 networks:
   app-network:
