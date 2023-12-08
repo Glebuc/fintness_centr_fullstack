@@ -1,28 +1,27 @@
-import React from 'react'
 import {Routes,Route} from 'react-router-dom'
-import SignIn from './SignInPage'
-import SignUp from './SignUpPage'
-import Main from './MainPage'
-import UserPanel from './UserPanelPage'
-import News from './NewsPage'
 import NotFound from './NotFoundPage'
-import TimeTable from './TimeTablePage'
-import Trainers from './TrainersPage'
 import Layout from '../components/Layout/Layout'
+import {userRoutes, adminRoutes, publicRoutes} from '../routes'
+import {Context} from '../index'
+import React, { useContext } from 'react';
+
 
 
 const AppRouter = () => {
+  const isAuth = false
+  const {user} = useContext(Context)
+
+  console.log(user)
   return (
     <div>
         <Routes>
             <Route path='/' element={<Layout/>}>
-              <Route path='/login' element={<SignIn/>}/>
-              <Route path='/registration' element={<SignUp/>}/>
-              <Route path='/' element={<Main/>}/>
-              <Route path='/user' element={<UserPanel/>}/>
-              <Route path='/news' element={<News/>}/>
-              <Route path='/trainers' element={<Trainers/>}/>
-              <Route path='/time' element={<TimeTable/>}/>
+              {user.isAuth && userRoutes.map(({path, Component}) =>
+                <Route key={path} path={path} Component={Component}  />
+              )}
+              {publicRoutes.map(({path, Component}) =>
+                <Route key={path} path={path} Component={Component}  />
+              )}
               <Route path='*' element={<NotFound/>} />
             </Route>
         </Routes>

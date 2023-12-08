@@ -3,7 +3,7 @@ import SiteHeader from '../components/Header/Header';
 import MainCover from '../components/Main/Main';
 import DescriptCardList from '../components/DescriptCard/DescriptCardList';
 import Photo from '../components/Gallery/Gallery';
-import TimeTable from '../components/TimeTable/TimeTable';
+import SectionTimeTable from '../components/TimeTable/SectionTimeTable';
 import Trainers from '../components/Trainers/Trainers';
 import Price from '../components/Price/Price';
 import News from '../components/News/News';
@@ -14,7 +14,7 @@ const Main = () => (
         <MainCover/>
         <DescriptCardList id="services"/>
         <Photo/>
-        <TimeTable id="time"/>
+        <SectionTimeTable />
         <Trainers id="trainers"/>
         <Price/>
         <News id="news"/>

@@ -167,7 +167,7 @@ const SignUp = () => {
   
             <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
-                className="inline-block shrink-0 rounded-md border border-white bg-purple-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-purple-600 bg-white focus:outline-none focus:ring active:text-blue-500 dark:hover:bg-blue-700 dark:hover:text-black"
+                className="inline-block shrink-0 rounded-md border border-white bg-white text-purple-600 px-12 py-3 text-sm font-medium text-purple-700 transition hover:bg-purple-600 hover:text-white focus:outline-none focus:ring"
               >
                 Зарегистрироваться
               </button>

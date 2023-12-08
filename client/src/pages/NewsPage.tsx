@@ -1,6 +1,14 @@
 import React from 'react'
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import axios from 'axios';
+
+
+const apiCall = () => {
+  axios.get('http://localhost:7000/api/news').then((data) => {
+    console.log(data)
+  })
+}
 
 
 const News = () => {
@@ -15,6 +23,7 @@ const News = () => {
             className="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" />
         </div>
         <div className="grow-0 shrink-0 basis-auto w-full lg:w-6/12 xl:w-8/12">
+
           <div className="px-6 py-12 md:px-12">
             <h2 className="text-2xl font-bold mb-4">What's the secret of the great taste?</h2>
             <p className="text-gray-500 mb-6">
@@ -32,6 +41,7 @@ const News = () => {
               possimus ad consequuntur fugiat perferendis consectetur laudantium.
             </p>
           </div>
+          <button onClick={apiCall}>Make API Call</button>
         </div>
       </div>
     </div>

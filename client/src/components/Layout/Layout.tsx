@@ -7,7 +7,9 @@ import Footer from "../Footer/Footer";
 export default function Layout() {
   return (<>
         <SiteHeader/>
-        <Outlet/>
+        <div className='min-h-screen'>
+          <Outlet/>
+        </div>
         <Footer/>
     </>
   )

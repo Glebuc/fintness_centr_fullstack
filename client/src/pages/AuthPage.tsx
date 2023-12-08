@@ -1,17 +1,21 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Header from '../components/Header/Header';
-import { registration } from '../http/userAPI';
+import {NavLink, useLocation} from "react-router-dom";
+import {ADMIN_ROUTE, MAIN_ROUTE, USER_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TRAINERS_ROUTE , TIMETABLE_ROUTE, NEWS_ROUTE} from "../utils/const";
+import {login, registration} from "../http/userAPI";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
 
-const SignIn = () => {
-  const  [email, setEmail] = useState('')
-  const  [password, setPassword] = useState('')
+const SignIn = observer(() => {
 
 
-  const signIn = async () => {
-    const response = await registration(email, password)
-    console.log(response)
-  }
+    const {user} = useContext(Context)
+    const location = useLocation()
+    const isLogin = location.pathname === LOGIN_ROUTE
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
 
   return (
     <div className="bg-purple-600">
@@ -56,8 +60,6 @@ const SignIn = () => {
                 type="text"
                 id="Email"
                 name="e-mail"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
                 className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
             </div>
@@ -73,8 +75,6 @@ const SignIn = () => {
               </label>
   
               <input
-                value={password}
-                onChange={e => setPassword(e.target.value)}
                 type="password"
                 id="Password"
                 name="password"
@@ -86,7 +86,6 @@ const SignIn = () => {
   
             <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
-              onClick={signIn}
                 className="inline-block shrink-0 rounded-md border border-white bg-white text-purple-600 px-12 py-3 text-sm font-medium text-purple-700 transition hover:bg-purple-600 hover:text-white focus:outline-none focus:ring "
               >
                 Войти
@@ -104,6 +103,6 @@ const SignIn = () => {
     </div>
   </section>
   </div>
-)}
+)})
 
 export default SignIn;

@@ -1,12 +1,6 @@
 import AppRouter from "./pages/AppRouter";
 
 
-
-
-
-
-
-
 const App = () => {
   return (
     <div>
