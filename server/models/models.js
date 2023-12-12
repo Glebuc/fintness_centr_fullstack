@@ -92,64 +92,76 @@ typeAbonement.hasMany(Abonement)
 Abonement.belongsTo(typeAbonement)
 
 
-
-async function addDayWeek() {
-  // Добавление дней недели в базу данных
-  const daysOfWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-
-  daysOfWeek.forEach(async (day) => {
+async function addToDatabase(data, Model, modelName) {
+  data.forEach(async (item) => {
     try {
-      
-      const [result, created] = await dayWeek.findOrCreate({
-        where: { day_week: day },
+      const [result, created] = await Model.findOrCreate({
+        where: { [modelName]: item },
       });
 
       if (created) {
-        console.log(`День недели "${day}" успешно добавлен.`);
+        console.log(`"${item}" успешно добавлено в базу данных.`);
       } else {
-        console.log(`День недели "${day}" уже существует в базе данных.`);
+        console.log(`"${item}" уже существует в базе данных.`);
       }
     } catch (error) {
-      console.error(`Ошибка при добавлении дня недели "${day}": ${error.message}`);
+      console.error(`Ошибка при добавлении "${item}": ${error.message}`);
     }
   });
 }
 
 
+async function addDataToDatabase() {
+  const gymsData = ["Общий зал", "Зал Йоги", "Зал MMA", "Зал групповых тренировок"];
+  await addToDatabase(gymsData, Gym, 'name_gyms');
 
-async function addGyms() {
-  // Добавление залов в базу данных
-  const gymsData = ["Общий зал", "Зал Йоги", "Зал MMA", "Зал групповых тренировок"]
+  const typeTrainingData = ["ММА", "Йога", "Кроссфит", "Групповая тренировка"];
+  await addToDatabase(typeTrainingData, typeTraining, 'type_training');
 
-  gymsData.forEach(async (gym) => {
-      try {
-        const [result, created] = await Gym.findOrCreate({
-          where: { name_gyms: gym },
-        });
-    
-        if (created) {
-          console.log(`Тренировочный зал "${gym}" успешно добавлен.`);
-        } else {
-          console.log(`Такой тренировочный зал "${gym}" уже существует в базе данных.`);
-        }
-      } catch (error) {
-        console.error(`Ошибка при добавлении тренировочного зала "${gym}": ${error.message}`);
-      }
-    });
+  const daysOfWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+  await addToDatabase(daysOfWeek, dayWeek, 'day_week');
 }
 
-// async function isTableExist(tableName) {
-//   try {
-//     const tables = await sequelize.getQueryInterface().showAllTables();
-//     console.log("БД создана ")
-//     return tables.includes(tableName);
-//   } catch (error) {
-//     console.error('Ошибка при проверке таблицы:', error);
-//     return false;
-//   }
-// }
-addDayWeek()
-addGyms()
+// Затем вызовите эту асинхронную функцию
+addDataToDatabase()
+  .then(() => {
+    console.log('Данные успешно добавлены в базу данных.');
+  })
+  .catch((error) => {
+    console.error('Ошибка при добавлении данных:', error);
+  });
+
+
+//Заполнение новостей тестовыми данными
+  async function fillNewsWithData() {
+    const testData = [
+      {
+        title_news: 'Новость 1',
+        descript_news: 'Описание новости 1',
+        img: 'image1.jpg'
+      },
+      {
+        title_news: 'Новость 2',
+        descript_news: 'Описание новости 2',
+        img: 'image2.jpg'
+      },
+    ];
+  
+    try {
+      for (const data of testData) {
+        await News.findOrCreate({
+          where: { title_news: data.title_news },
+          defaults: data
+        });
+      }
+      console.log('Тестовые данные успешно добавлены в таблицу News.');
+    } catch (error) {
+      console.error('Ошибка при добавлении тестовых данных:', error);
+    }
+  }
+
+
+  fillNewsWithData();
 
 
 module.exports = {

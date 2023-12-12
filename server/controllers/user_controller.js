@@ -4,13 +4,21 @@ const jwt = require('jsonwebtoken')
 const {User, Abonement} = require('../models/models')
 
 
+const generateJwt = (id, email, role) => {
+    return jwt.sign(
+        {id, email, role},
+        process.env.SECRET_KEY,
+        {expiresIn: '24h'}
+    )
+}
+
 
 class UserController {
 
 
     async registration(req, res, next) {
         const {password_user, phone_user, gender_user, fio_user, email_user, age_user, is_admin} = req.body
-        if (!password_user || !phone_user || !gender_user || !fio_user || !email_user || !age_user || !is_admin) {
+        if (!password_user || !phone_user || !gender_user || !fio_user || !email_user || !age_user || !is_admin || !age_user) {
             return next(ApiError.badRequest("Введены некорректные данные"))
         }
         const candidate = await User.findOne({where:{email_user}})
@@ -19,37 +27,30 @@ class UserController {
         }
         const secretPassword = await bcrypt.hash(password_user, 5)
         const user = await User.create({password_user: secretPassword, phone_user, gender_user, fio_user, email_user, age_user, is_admin})
-        const basket = await Abonement.create({userIdUser: user.id_user})
-        const token = jwt.sign(
-            {user_id:user.id_user, email_user, is_admin}, 
-            process.env.SECRET_KEY, {expiresIn:'24h'}
-            )
-
+        const abonement = await Abonement.create({userIdUser: user.id_user})
+        const token = generateJwt(user.id_user, user.email_user, user.is_admin)
         return res.json({token})
     }
 
 
     async login(req, res, next) {
         const {email_user, password_user} = req.body
-        const user = await User.findOne({where:{email_user}})
+        const user = await User.findOne({where: {email_user}})
         if (!user) {
-            return next(ApiError.internal("Пользователь не найден. Создайте аккаунт"))
+            return next(ApiError.internal('Пользователь не найден'))
         }
-        let checkPassword = bcrypt.compareSync(password_user, user.password_user)
-        if (!checkPassword) {
-            return next(ApiError.badRequest("Вы ввели неправильный пароль"))
+        let comparePassword = bcrypt.compareSync(password_user, user.password_user)
+        if (!comparePassword) {
+            return next(ApiError.internal('Указан неверный пароль'))
         }
-        const token = jwt.sign(
-            {user_id:user.id_user, email_user}, 
-            process.env.SECRET_KEY, {expiresIn:'24h'}
-            )
-
+        const token = generateJwt(user.user_id, user.email_user, user.is_admin)
         return res.json({token})
     }
 
 
     async check(req, res, next) {
-       res.json({message:"Все работает"})
+        const token = generateJwt(req.user.id_user, req.user.email_user, req.user.is_admin)
+        return res.json({token})
     }
 }
 

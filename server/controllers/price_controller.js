@@ -1,16 +1,13 @@
-const {News} = require('../models/models')
+const {typeAbonement} = require('../models/models')
 const ApiError = require("../error/Error")
 const uuid = require('uuid')
 const path = require('path')
 
-class NewsController {
+class PriceController {
     async create(req, res, next) {
         try {
-            const {title_news, descript_news} = req.body
-            const {img} = req.files
-            let fileName = uuid.v4()+".jpg"
-            img.mv(path.resolve(__dirname, "..", "static", fileName))
-            const news = await News.create({title_news, descript_news, img: fileName})
+            const {type_abonement, price_abonement} = req.body
+            const news = await News.create({type_abonement, price_abonement})
             return res.json(news)
 
         } catch (error) {
@@ -31,8 +28,6 @@ class NewsController {
         const newsOne = await News.findOne({where: {id_news}})
         return res.json(newsOne)
     }
-
-
     async updateOne (req, res) {
         const { id_news } = req.params; 
         const { title_news, descript_news } = req.query; 
@@ -54,8 +49,6 @@ class NewsController {
           return res.status(500).send('Ошибка сервера');
         }
     }
-
-
     async deleteOne (req, res) {
         const { id_news } = req.params; // Получаем ID новости из запроса
 
@@ -76,4 +69,4 @@ class NewsController {
     }
 }
 
-module.exports = new NewsController()
+module.exports = new PriceController()
