@@ -7,13 +7,12 @@ interface TrainersCard {
   imagePath: string;
   altImage: string;
   descriptionTrainers: string;
-  specialization: string;
+  specialization_trainer: string;
 }
 
 
-const TrainersCard :React.FC<TrainersCard> = ({ name, imagePath, altImage, descriptionTrainers, specialization }) => {
+const TrainersCard :React.FC<TrainersCard> = ({ name, imagePath, altImage, descriptionTrainers, specialization_trainer }) => {
 return (
-  <div className="w-full">
   <a href="#" className="group relative block bg-black">
   <img
     alt={altImage}
@@ -23,7 +22,7 @@ return (
 
   <div className="relative p-4 sm:p-6 lg:p-8">
     <p className="text-sm font-bold uppercase tracking-widest text-purple-900 bg-purple-300">
-      {specialization}
+      {specialization_trainer}
     </p>
 
     <p className="text-xl font-bold text-white sm:text-2xl">{name}</p>
@@ -39,7 +38,6 @@ return (
     </div>
   </div>
 </a>
-</div>
 );
 };
 

@@ -15,7 +15,7 @@ const AppRouter = () => {
   return (
     <div>
         <Routes>
-            <Route path='/' element={<Layout/>}>
+            <Route path='' element={<Layout/>}>
               {user.isAuth && userRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} Component={Component}  />
               )}

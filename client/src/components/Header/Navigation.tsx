@@ -30,7 +30,7 @@ return (
       </NavLink>
     </nav>
 
-    <div className="flex items-center gap-5">
+    {/* <div className="flex items-center gap-5">
       <div className="flex items-center divide-x divide-gray-100 justify-center  active:border-purple-700 bg-purple-700">
         <span>
           <NavLink
@@ -51,7 +51,7 @@ return (
           </NavLink>
         </span>
       </div>
-    </div>
+    </div> */}
   </div>
 );
 };

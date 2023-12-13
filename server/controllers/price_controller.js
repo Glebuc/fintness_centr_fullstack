@@ -4,45 +4,44 @@ const uuid = require('uuid')
 const path = require('path')
 
 class PriceController {
+
     async create(req, res, next) {
         try {
-            const {type_abonement, price_abonement} = req.body
-            const news = await News.create({type_abonement, price_abonement})
-            return res.json(news)
+            const {type_abonement, duration_abonement, descript_abonement, price_abonement} = req.body
+            console.log(req.body)
+            const abonement = await typeAbonement.create({type_abonement, price_abonement, duration_abonement, descript_abonement})
+            return res.json(abonement)
 
         } catch (error) {
             next(ApiError.badRequest(error.message))
         }
         
     }
+
     async getAll(req, res) {
-        let {limit, page} = req.query
-        page = page || 1 //страница
-        limit = limit || 10 //количество записей на странице
-        let offset = page*limit-limit
-        const news = await News.findAndCountAll({limit, offset})
-        return res.json(news)
+        const abonement = await typeAbonement.findAll()
+        return res.json(abonement)
     }
     async getOne(req, res) {
-        const {id_news} = req.params
-        const newsOne = await News.findOne({where: {id_news}})
-        return res.json(newsOne)
+        const {id_type_abonement} = req.params
+        const typeAbonementOne = await typeAbonement.findOne({where: {id_type_abonement}})
+        return res.json(typeAbonementOne)
     }
     async updateOne (req, res) {
-        const { id_news } = req.params; 
-        const { title_news, descript_news } = req.query; 
+        const { id_type_abonement } = req.params; 
+        const { price_abonement, type_abonement } = req.query; 
 
         try {
-          const news = await News.findByPk(id_news); 
-          if (!news) {
-            return res.status(404).send('Новость не найдена');
+          const abonement = await typeAbonement.findByPk(id_type_abonement); 
+          if (!abonement) {
+            return res.status(404).send('Тип абонемента не найден');
           }
       
-          news.title_news = title_news;
-          news.descript_news = descript_news;
-          await news.save(); 
+          abonement.type_abonement = type_abonement;
+          abonement.price_abonement = price_abonement;
+          await abonement.save(); 
       
-          return res.json(news)
+          return res.json(abonement)
 
         } catch (error) {
           console.error('Ошибка при обновлении данных новости:', error);
@@ -50,18 +49,16 @@ class PriceController {
         }
     }
     async deleteOne (req, res) {
-        const { id_news } = req.params; // Получаем ID новости из запроса
-
+        const { id_type_abonement } = req.params; 
         try {
-            const news = await News.findByPk(id_news); // Находим новость по ID
-
-            if (!news) {
-            return res.status(404).send('Новость не найдена');
+            const abonement = await typeAbonement.findByPk(id_type_abonement); 
+            if (!abonement) {
+            return res.status(404).send('Тип абонемента не найден');
             }
 
-            await news.destroy(); // Удаляем новость из базы данных
+            await abonement.destroy(); 
 
-            return res.status(200).send('Новость успешно удалена');
+            return res.status(200).send('Тип абонемента успешно удален');
         } catch (error) {
             console.error('Ошибка при удалении новости:', error);
             return res.status(500).send('Ошибка сервера');

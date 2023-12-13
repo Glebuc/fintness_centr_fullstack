@@ -37,132 +37,158 @@ return (
   <tbody>
       <tr className="bg-purple-400 border border-purple-800">
           <th scope="row" className="px-6 font-black py-4 border border-purple-800 text-white whitespace-nowrap">
-              Имя тренера 1
+              Светлана Васильева
           </th>
           <td className="px-6 py-6 border border-purple-800">
-            Занятие/Время
+            ----
           </td>
           <td className="px-6 py-6 border border-purple-800">
-            Занятие/Время
+            Кроссфит/ <br /> Зал для кроссфита/ <br /> 18:20
           </td>
           <td className="px-6 py-6 border border-purple-800">
-            Занятие/Время
+            ----
           </td>
           <td className="px-6 py-6 border border-purple-800">
-            Занятие/Время
+          Кроссфит/ <br /> Зал для кроссфита/ <br /> 16:20
         </td>
         <td className="px-6 py-6 border border-purple-800">
-          Занятие/Время
+          ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+        Кроссфит/ <br /> Зал для кроссфита/ <br /> 15:20
     </td>
     <td className="px-6 py-6 border border-purple-800">
-      Занятие/Время
+        ----
   </td>
       </tr>
       <tr className="bg-purple-400 border border-purple-800">
         <th scope="row" className="px-6 py-4 border border-purple-800 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-          Имя тренера 1
+          Олег Мурзин
       </th>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+        ММА/ <br /> Зал для единоборств/ <br /> 15:20
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ММА/ <br /> Зал для единоборств/ <br /> 15:20
     </td>
     <td className="px-6 py-6 border border-purple-800">
-      Занятие/Время
+    ----
   </td>
   <td className="px-6 py-6 border border-purple-800">
-    Занятие/Время
+    ММА/ <br /> Зал для единоборств/ <br /> 15:20
 </td>
 <td className="px-6 py-6 border border-purple-800">
-  Занятие/Время
+  ----
 </td>
       </tr>
       <tr className="bg-purple-400 border border-purple-800">
         <th scope="row" className="px-6 py-4 border border-purple-800 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-          Имя тренера 1
+          Алена Поздова
       </th>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      Групповая тренировка на степе/ <br /> Зал для групповых тренировок/ <br /> 15:20
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      Групповая тренировка с гантелями/ <br /> Зал для групповых тренировок/ <br /> 15:20
     </td>
     <td className="px-6 py-6 border border-purple-800">
-      Занятие/Время
+    ----
   </td>
   <td className="px-6 py-6 border border-purple-800">
-    Занятие/Время
+  ----
 </td>
 <td className="px-6 py-6 border border-purple-800">
-  Занятие/Время
+Групповая тренировка с гантелями/ <br /> Зал для групповых тренировок/ <br /> 15:20
 </td>
       </tr>
       <tr className="bg-purple-400 border border-purple-800">
         <th scope="row" className="px-6 py-4 border border-purple-800 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-          Имя тренера 1
+          Петр Логунов
       </th>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      Групповая тренировка силовая/ <br /> Зал для единоборств/ <br /> 15:20
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
     </td>
     <td className="px-6 py-6 border border-purple-800">
-      Занятие/Время
+    ----
   </td>
   <td className="px-6 py-6 border border-purple-800">
-    Занятие/Время
+  ----
 </td>
 <td className="px-6 py-6 border border-purple-800">
-  Занятие/Время
+Групповая тренировка силовая/ <br /> Зал для единоборств/ <br /> 15:20
 </td>
       </tr>
       <tr className="bg-purple-400 border border-purple-800">
         <th scope="row" className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-          Имя тренера 1
+          Лидия Иванова
       </th>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      Йога/ <br /> Зал для йоги/ <br /> 8:20
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      Йога/ <br /> Зал для йоги/ <br /> 8:20
       </td>
       <td className="px-6 py-6 border border-purple-800">
-        Занятие/Время
+      ----
     </td>
     <td className="px-6 py-6 border border-purple-800">
-      Занятие/Время
+    Йога/ <br /> Зал для йоги/ <br /> 8:20
   </td>
   <td className="px-6 py-6 border border-purple-800">
-    Занятие/Время
+  ----
 </td>
 <td className="px-6 py-6 border border-purple-800">
-  Занятие/Время
+----
+</td>
+      </tr>
+      <tr className="bg-purple-400 border border-purple-800">
+        <th scope="row" className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
+          Нина Солонина
+      </th>
+      <td className="px-6 py-6 border border-purple-800">
+      Групповая беговая/ <br /> Зал для групповых/ <br /> 13:20
+      </td>
+      <td className="px-6 py-6 border border-purple-800">
+      ----
+      </td>
+      <td className="px-6 py-6 border border-purple-800">
+      Групповая беговая/ <br /> Зал для групповых/ <br /> 13:20
+      </td>
+      <td className="px-6 py-6 border border-purple-800">
+      ----
+    </td>
+    <td className="px-6 py-6 border border-purple-800">
+    ----
+  </td>
+  <td className="px-6 py-6 border border-purple-800">
+  Групповая беговая/ <br /> Зал для групповых/ <br /> 13:20
+</td>
+<td className="px-6 py-6 border border-purple-800">
+----
 </td>
       </tr>
   </tbody>

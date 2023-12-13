@@ -1,8 +1,44 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import Header from '../components/Header/Header';
-
+import { registration } from '../http/userAPI';
+import { observer } from 'mobx-react-lite';
+import { Context } from '..';
+import { useNavigate} from "react-router-dom";
 
 const SignUp = () => {
+
+  const {user} = useContext(Context)
+  const  [email_user, setEmail] = useState('')
+  const  [password_user, setPassword] = useState('')
+  const  [age_user, setAge] = useState('')
+  const  [gender_user, setGender] = useState('')
+  const  [phone_user, setPhone] = useState('')
+  const  [fio_user, setFIO] = useState('')
+  const navigate = useNavigate();
+
+
+
+  const signUp = async () => {
+    try {
+      let data;
+      data = await registration(email_user, password_user, age_user, gender_user, phone_user, fio_user)
+      console.log(data)
+      user.setUser(user)
+      user.setIsAuth(true)
+      console.log(data)
+      navigate('/user')
+    } catch (error) {
+      console.log("Ошибка регистрации")
+      alert(error)
+    }
+    
+  }
+
+
+
+
+
+
   return (
     <div className="bg-purple-600">
     <section>
@@ -32,7 +68,7 @@ const SignUp = () => {
            Окунись в мир спорта.
           </p>
   
-          <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+          <form action="POST" className="mt-8 grid grid-cols-6 gap-6">
             <div className="col-span-6 sm:col-span-3">
               <label
                 htmlFor="FirstName"
@@ -42,6 +78,9 @@ const SignUp = () => {
               </label>
   
               <input
+                value={fio_user}
+                placeholder='Введите ФИО...'
+                onChange={e => setFIO(e.target.value)}
                 type="text"
                 id="FirstName"
                 name="first_name"
@@ -58,6 +97,9 @@ const SignUp = () => {
               </label>
   
               <input
+                value={email_user}
+                placeholder='Введите e-mail...'
+                onChange={e => setEmail(e.target.value)}
                 type="text"
                 id="LastName"
                 name="last_name"
@@ -74,9 +116,12 @@ const SignUp = () => {
               </label>
   
               <input
-                type="email"
+                value={phone_user}
+                placeholder='Введите номер телефона...'
+                onChange={e => setPhone(e.target.value)}
+                type="phone"
                 id="Email"
-                name="email"
+                name="phone"
                 className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
             </div>
@@ -89,7 +134,10 @@ const SignUp = () => {
               </label>
   
               <input
-                type="email"
+                value={age_user}
+                placeholder='Введите свой возраст...'
+                onChange={e => setAge(e.target.value)}
+                type="age"
                 id="Email"
                 name="email"
                 className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
@@ -103,7 +151,12 @@ const SignUp = () => {
                 Пол
               </label>
   
-              <select className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200">
+              <select 
+               className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+                value={gender_user}
+                placeholder='Выберите свой пол'
+                onChange={e => setGender(e.target.value)}>
+
                 <option>Мужчина</option>
                 <option>Женщина</option>
               </select>
@@ -118,6 +171,9 @@ const SignUp = () => {
               </label>
   
               <input
+              value={password_user}
+              placeholder='Введите пароль'
+              onChange={e => setPassword(e.target.value)}
                 type="password"
                 id="Password"
                 name="password"
@@ -125,21 +181,7 @@ const SignUp = () => {
               />
             </div>
   
-            <div className="col-span-6 sm:col-span-3">
-              <label
-                htmlFor="PasswordConfirmation"
-                className="block text-sm font-medium text-white dark:text-gray-200"
-              >
-                Подтвердите пароль
-              </label>
-  
-              <input
-                type="password"
-                id="PasswordConfirmation"
-                name="password_confirmation"
-                className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
-              />
-            </div>
+          
   
             <div className="col-span-6">
               <label htmlFor="MarketingAccept" className="flex gap-4">
@@ -167,6 +209,7 @@ const SignUp = () => {
   
             <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
               <button
+              onClick={signUp}
                 className="inline-block shrink-0 rounded-md border border-white bg-white text-purple-600 px-12 py-3 text-sm font-medium text-purple-700 transition hover:bg-purple-600 hover:text-white focus:outline-none focus:ring"
               >
                 Зарегистрироваться

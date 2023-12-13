@@ -20,7 +20,8 @@ const Trainers = sequelize.define('trainers', {
     descript_trainer: {type: DataTypes.STRING, comment:"Описание тренера"},
     birth_trainer: {type: DataTypes.DATE, comment:"Дата рождения тренера"},
     phone_trainer: {type: DataTypes.STRING, comment:"Номер телефона тренера"},
-    photo_trainer: {type: DataTypes.STRING, comment:"Фото тренера"}
+    photo_trainer: {type: DataTypes.STRING, comment:"Фото тренера"},
+    specialization_trainer: {type: DataTypes.STRING, comment:"Специализация тренера"}
 })
 
 const Athletics = sequelize.define('athletics', {
@@ -58,10 +59,12 @@ const Abonement = sequelize.define('abonement', {
     end_date: {type: DataTypes.DATEONLY, comment:"Конец абонемента" }
 })
 
-const typeAbonement = sequelize.define('type_abonemnt', {
+const typeAbonement = sequelize.define('type_abonement', {
     id_type_abonement: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    type_abonement: {type: DataTypes.STRING, allowNull:false},
-    price_abonement: {type: DataTypes.INTEGER, allowNull:false}
+    type_abonement: {type: DataTypes.STRING, allowNull:false, comment:"Тип абонемента"},
+    duration_abonement: {type: DataTypes.STRING, allowNull:false, comment:"Продолжительность абонемента (год || месяц)"},
+    descript_abonement: {type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true, comment:"Массив описания преимущетсв абонемента"},
+    price_abonement: {type: DataTypes.INTEGER, allowNull:false, comment:"Цена абонемента"}
 }
 )
 
@@ -122,7 +125,7 @@ async function addDataToDatabase() {
   await addToDatabase(daysOfWeek, dayWeek, 'day_week');
 }
 
-// Затем вызовите эту асинхронную функцию
+
 addDataToDatabase()
   .then(() => {
     console.log('Данные успешно добавлены в базу данных.');
@@ -132,7 +135,7 @@ addDataToDatabase()
   });
 
 
-//Заполнение новостей тестовыми данными
+
   async function fillNewsWithData() {
     const testData = [
       {
@@ -160,8 +163,167 @@ addDataToDatabase()
     }
   }
 
+  async function fillTrainersWithData() {
+    const testData = [
+      {
+        fio_trainer: 'Светлана Васильева',
+        descript_trainer: 'Описание тренера 1',
+        birth_trainer: '12-11-1993',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer1.jpg',
+        specialization_trainer: "Тренер по кроссфиту"
+      },
+      {
+        fio_trainer: 'Олег Мурзин',
+        descript_trainer: 'Описание тренера 2',
+        birth_trainer: '12-11-1997',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer2.jpg',
+        specialization_trainer: "Тренер направления ММА"
+      },
+      {
+        fio_trainer: 'Алена Поздова',
+        descript_trainer: 'Описание тренера 3',
+        birth_trainer: '12-11-1995',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer3.jpg',
+        specialization_trainer: "Тренер групповых тренировок"
+      },
+      {
+        fio_trainer: 'Петр Логунов',
+        descript_trainer: 'Описание тренера 4',
+        birth_trainer: '12-11-1989',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer4.jpg',
+        specialization_trainer: "Тренер индивидуальных тренировок"
+      },
+      {
+        fio_trainer: 'Лидия Иванова',
+        descript_trainer: 'Описание тренера 5',
+        birth_trainer: '12-11-1996',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer5.jpg',
+        specialization_trainer: "Тренер направления Йога"
+      },
+      {
+        fio_trainer: 'Нина Солонина',
+        descript_trainer: 'Описание тренера 6',
+        birth_trainer: '12-11-1993',
+        phone_trainer: '8999999999',
+        photo_trainer: 'trainer6.jpg',
+        specialization_trainer: "Тренер групповых тренировок"
+      },
+    ];
+  
+    try {
+      for (const data of testData) {
+        await Trainers.findOrCreate({
+          where: { fio_trainer: data.fio_trainer },
+          defaults: data
+        });
+      }
+      console.log('Тестовые данные успешно добавлены в таблицу Trainers.');
+    } catch (error) {
+      console.error('Ошибка при добавлении тестовых данных:', error);
+    }
+  }
 
+
+
+  fillTrainersWithData()
   fillNewsWithData();
+
+
+async function addAbonement(type, duration, description, price) {
+    try {
+      const existingAbonement = await typeAbonement.findOne({
+        where: { price_abonement: price,  duration_abonement: duration },
+      });
+  
+      if (!existingAbonement) {
+        await typeAbonement.create({
+          type_abonement: type,
+          duration_abonement: duration,
+          descript_abonement: description,
+          price_abonement: price,
+        });
+        console.log(`Тип абонемента "${type}" с продолжительностью "${duration}" успешно добавлен`);
+      } else {
+        console.log(`Тип абонемента "${type}" с продолжительностью "${duration}" уже существует`);
+      }
+    } catch (error) {
+      console.error('Ошибка при добавлении данных:', error);
+    }
+  }
+  
+  async function addTypeAbonement() {
+    try {
+      await sequelize.authenticate();
+      console.log('Успешное подключение к базе данных');
+  
+      await addAbonement(
+        'Базовый',
+        'месяц',
+        ['Ограничение по времени 4 часа', 'Доступ к части групповых занятий'],
+        2000
+      );
+  
+      await addAbonement(
+        'Базовый',
+        'год',
+        ['Ограничение по времени 4 часа', 'Доступ к части групповых занятий'],
+        12000
+      );
+  
+      await addAbonement(
+        'ПРО',
+        'месяц',
+        ['Нет ограничения по времени', 'Доступ ко всем групповым занятиям'],
+        3000
+      );
+  
+      await addAbonement(
+        'ПРО',
+        'год',
+        ['Нет ограничения по времени', 'Доступ ко всем групповым занятиям'],
+        15000
+      );
+  
+      await addAbonement(
+        'Эксклюзив',
+        'месяц',
+        [
+          'Нет ограничения по времени',
+          'Составление персонального рациона от специалиста',
+          'Доступ ко всем групповым занятиям',
+          'Составление персональной программы тренировок',
+          'Доступ в сауну',
+        ],
+        5000
+      );
+  
+      await addAbonement(
+        'Эксклюзив',
+        'год',
+        [
+          'Нет ограничения по времени',
+          'Составление персонального рациона от специалиста',
+          'Доступ ко всем групповым занятиям',
+          'Составление персональной программы тренировок',
+          'Доступ в сауну',
+        ],
+        20000
+      );
+  
+      console.log('Данные успешно добавлены');
+    } catch (error) {
+      console.error('Ошибка при добавлении данных:', error);
+    }
+  }
+
+addTypeAbonement()
+
+
 
 
 module.exports = {

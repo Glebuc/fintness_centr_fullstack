@@ -1,5 +1,6 @@
 import React from 'react';
 import './../../index.css';
+import { Link } from 'react-router-dom';
 
 
 const Footer: React.FC = () => {return (
@@ -98,10 +99,10 @@ const Footer: React.FC = () => {return (
           <br />
   
           Сайт разработан
-          <a
-            href="#"
+          <Link
+            to="/admin"
             className="text-white transition hover:text-purple-300/75"
-            ><br /> (-___-)</a>
+            ><br /> (-___-)</Link>
         </p>
       </div>
     </div>

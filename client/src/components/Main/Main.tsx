@@ -29,21 +29,6 @@ return (
         Высокое качество, лучшие тренажеры, высококвалифированный тренерский состав
       </p>
 
-      <div className="mt-8 flex flex-wrap gap-4 text-center">
-        <a
-          href="#"
-          className="block w-full rounded bg-purple-700 px-12 py-3 text-sm font-medium text-white shadow hover:bg-white hover:text-purple-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-        >
-          О нас
-        </a>
-
-        <a
-          href="#"
-          className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-purple-600 shadow hover:bg-purple-700 hover:text-white focus:outline-none focus:ring active:text-white sm:w-auto"
-        >
-          Услуги
-        </a>
-      </div>
     </div>
   </div>
 </main>

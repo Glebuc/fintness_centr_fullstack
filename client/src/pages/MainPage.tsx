@@ -15,7 +15,7 @@ const Main = () => (
         <DescriptCardList id="services"/>
         <Photo/>
         <SectionTimeTable />
-        <Trainers id="trainers"/>
+        <Trainers/>
         <Price/>
         <News id="news"/>
     </div>

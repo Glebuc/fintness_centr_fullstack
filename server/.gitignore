@@ -12,6 +12,17 @@
 /build
 
 /static/*
+
+!static/image1.jpg
+!static/image2.jpg
+
+!static/trainer1.jpg
+!static/trainer2.jpg
+!static/trainer3.jpg
+!static/trainer4.jpg
+!static/trainer5.jpg
+!static/trainer6.jpg
+
 # misc
 .DS_Store
 .env.local

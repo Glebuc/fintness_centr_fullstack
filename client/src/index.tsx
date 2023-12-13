@@ -7,7 +7,6 @@ import UserStore from './store/UserStore';
 
 const userStore = { user: new UserStore() };
 export const Context = createContext(userStore)
-console.log(process.env.REACT_APP_URL)
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(

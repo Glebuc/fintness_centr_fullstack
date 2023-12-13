@@ -1,16 +1,34 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Header from '../components/Header/Header';
-import { registration } from '../http/userAPI';
+import { login } from '../http/userAPI';
+import { observer } from 'mobx-react-lite';
+import { Context } from '..';
+import {NavLink,useNavigate, useLocation, redirect} from "react-router-dom";
 
 
-const SignIn = () => {
-  const  [email, setEmail] = useState('')
-  const  [password, setPassword] = useState('')
+const SignIn = observer(() => {
+
+  const {user} = useContext(Context)
+  const  [email_user, setEmail] = useState('')
+  const  [password_user, setPassword] = useState('')
+ 
+
+  const navigate = useNavigate();
 
 
   const signIn = async () => {
-    const response = await registration(email, password)
-    console.log(response)
+    try {
+      let data;
+      data = await login(email_user, password_user)
+      console.log(data)
+      user.setUser(user)
+      user.setIsAuth(true)
+      if (user._isAuth = true) {
+        navigate("/user")
+      }
+    } catch (e: any) {
+      alert(e.response.data.message)
+    }
   }
 
   return (
@@ -56,7 +74,8 @@ const SignIn = () => {
                 type="text"
                 id="Email"
                 name="e-mail"
-                value={email}
+                value={email_user}
+                placeholder='Введите e-mail...'
                 onChange={e => setEmail(e.target.value)}
                 className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
@@ -73,11 +92,12 @@ const SignIn = () => {
               </label>
   
               <input
-                value={password}
+                value={password_user}
                 onChange={e => setPassword(e.target.value)}
                 type="password"
                 id="Password"
                 name="password"
+                placeholder='Введите пароль...'
                 className="p-1 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-black shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
               />
             </div>
@@ -104,6 +124,6 @@ const SignIn = () => {
     </div>
   </section>
   </div>
-)}
+)})
 
 export default SignIn;

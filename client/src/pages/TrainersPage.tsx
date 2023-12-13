@@ -1,10 +1,10 @@
 import React from 'react'
-import Trainers from '../components/Trainers/Trainers';
+import TrainersComponent from '../components/Trainers/Trainers';
 
 export default function TrainersPage() {
   return (
     <div>
-      <Trainers id=''/>
+      <TrainersComponent/>
     </div>
   )
 }
