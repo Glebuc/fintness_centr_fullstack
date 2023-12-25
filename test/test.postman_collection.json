@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "89357532-59ad-47d7-b2ff-497b2fc5766f",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31487859"
+	},
+	"item": [
+		{
+			"name": "news",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/news/7?title_news=Новый заголовок1&descript_news=Новый заголовок2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"news",
+						"7"
+					],
+					"query": [
+						{
+							"key": "title_news",
+							"value": "Новый заголовок1"
+						},
+						{
+							"key": "descript_news",
+							"value": "Новый заголовок2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news_all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/news/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"news",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/news/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"news",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/news/?limit=2&page=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"news",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "news",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/news/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"news",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trainer_all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/trainer/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"trainer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trainer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/trainer/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"trainer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trainer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/trainer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"trainer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trainer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/trainer/7?fio_trainer=Катенька&specialization_trainer=Тренер по силовым тренировкам, персональный тренер&phone_trainer=89451097834",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"trainer",
+						"7"
+					],
+					"query": [
+						{
+							"key": "fio_trainer",
+							"value": "Катенька"
+						},
+						{
+							"key": "specialization_trainer",
+							"value": "Тренер по силовым тренировкам, персональный тренер"
+						},
+						{
+							"key": "phone_trainer",
+							"value": "89451097834"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allprice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/price/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"price",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "price",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type_abonement\":\"Разовый\",\r\n    \"duration_abonement\":\"1 раз\",\r\n    \"price_abonement\":500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "price",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/price/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"price",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "price",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/price/7?price_abonement=600&type_abonement=Пробный",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"price",
+						"7"
+					],
+					"query": [
+						{
+							"key": "price_abonement",
+							"value": "600"
+						},
+						{
+							"key": "type_abonement",
+							"value": "Пробный"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
