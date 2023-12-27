@@ -386,6 +386,46 @@ addTypeAbonement()
 
 
 
+
+async function createUserIfNotExists(userData) {
+  try {
+    const existingUser = await User.findOne({ where: { email_user: userData.email_user } });
+
+    if (existingUser) {
+      console.log("Пользователь уже существует в базе данных.");
+      return existingUser;
+    } else {
+      const newUser = await User.create(userData);
+      console.log("Пользователь успешно создан:", newUser.toJSON());
+      return newUser; 
+    }
+  } catch (error) {
+    console.error("Ошибка при создании пользователя:", error);
+    throw error;
+  }
+}
+
+const userData = {
+  email_user: "admin@admin.ru",
+  password_user: "admin",
+  fio_user: "Дерюгин Глеб Сергеевич",
+  age_user: 23,
+  gender_user: "men",
+  phone_user: "89200518601"
+};
+
+createUserIfNotExists(userData)
+  .then(user => {
+    console.log('Данные успешно добавлены');
+  })
+  .catch(error => {
+    console.error('Ошибка при добавлении данных:', error);
+  });
+
+
+
+
+
 module.exports = {
     User,
     Trainers,
