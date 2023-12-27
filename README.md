@@ -27,6 +27,9 @@
     - Express - `localhost:7000`
     - Postgres - `localhost:5434`
 
+Данные для входа в админ панель:
+ - Логин: `admin@admin.ru`
+ - Пароль: `admin`
 
 ### Сборка с помощью node
 
