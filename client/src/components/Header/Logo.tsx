@@ -5,7 +5,7 @@ import './../../index.css'
 
 const Logo:React.FC = () => {
 return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 mx-5">
       <div className='logo'>
         <Link to="/">
           <img src="/img/logo.svg" className="w-10 cursor-pointer" alt="" />

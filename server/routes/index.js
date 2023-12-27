@@ -10,7 +10,6 @@ const priceRouter = require('./price_router')
 
 
 router.use('/user', userRouter)
-// router.use('/admin', adminRouter)
 router.use('/trainer', trainerRouter)
 router.use('/news', newsRouter)
 router.use('/price', priceRouter)

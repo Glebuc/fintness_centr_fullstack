@@ -21,9 +21,9 @@ return (
   />
 
   <div className="relative p-4 sm:p-6 lg:p-8">
-    <p className="text-sm font-bold uppercase tracking-widest text-purple-900 bg-purple-300">
+    {/* <p className="text-sm font-bold uppercase tracking-widest text-purple-900 bg-purple-300">
       {specialization_trainer}
-    </p>
+    </p> */}
 
     <p className="text-xl font-bold text-white sm:text-2xl">{name}</p>
 

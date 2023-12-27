@@ -1,12 +1,11 @@
 import { observer } from "mobx-react-lite";
 import AppRouter from "./pages/AppRouter";
 import { useContext, useEffect, useState, CSSProperties} from "react";
-import { Context } from ".";
+
 import ClipLoader from "react-spinners/ClipLoader";
 
 
 const App = observer(() => {
-  const {user} = useContext(Context)
   const [loading, setLoading] = useState(true)
 
 

@@ -7,3 +7,20 @@
     border-bottom: 5px solid rgb(96, 6, 242);
     cursor: default;
 }
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+
+@media (max-width: 1024px) {
+    .lg\\:hidden {
+      display: block !important;
+    }
+    .lg\\:flex {
+      display: none !important;
+    }
+  }

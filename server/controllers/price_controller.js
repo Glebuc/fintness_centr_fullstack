@@ -27,6 +27,7 @@ class PriceController {
         const typeAbonementOne = await typeAbonement.findOne({where: {id_type_abonement}})
         return res.json(typeAbonementOne)
     }
+    
     async updateOne (req, res) {
         const { id_type_abonement } = req.params; 
         const { price_abonement, type_abonement } = req.query; 
@@ -39,10 +40,8 @@ class PriceController {
       
           abonement.type_abonement = type_abonement;
           abonement.price_abonement = price_abonement;
-          await abonement.save(); 
-      
+          await abonement.save();     
           return res.json(abonement)
-
         } catch (error) {
           console.error('Ошибка при обновлении данных новости:', error);
           return res.status(500).send('Ошибка сервера');

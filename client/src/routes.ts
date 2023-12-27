@@ -1,21 +1,15 @@
 
-import {ADMIN_ROUTE, MAIN_ROUTE, USER_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, TRAINERS_ROUTE , TIMETABLE_ROUTE, NEWS_ROUTE} from "./utils/const";
+import { MAIN_ROUTE, USER_ROUTE, LOGIN_ROUTE, TRAINERS_ROUTE , TIMETABLE_ROUTE, NEWS_ROUTE, CONTACT_ROUTE, LOW_ROUTE} from "./utils/const";
 import Main from "./pages/MainPage";
 import SignIn from "./pages/SignInPage";
-import SignUp from "./pages/SignUpPage";
-import AdminPage from "./pages/AdminPage";
 import News from "./pages/NewsPage";
 import TrainersPage from "./pages/TrainersPage";
 import TimeTable from "./pages/TimeTablePage";
 import UserPanel from "./pages/UserPanelPage";
 import Layout from "./components/Layout/Layout";
+import FitnessClubRules from "./components/Low/Low"
+import ContactInfo from "./components/Contact/Contact"
 
-export const adminRoutes = [
-    {
-        path: ADMIN_ROUTE,
-        Component: AdminPage
-    }
-]
 
 export const userRoutes = [
     {
@@ -39,10 +33,6 @@ export const publicRoutes = [
         Component: Layout
     },
     {
-        path: REGISTRATION_ROUTE,
-        Component: SignUp
-    },
-    {
         path: TRAINERS_ROUTE,
         Component: TrainersPage
     },
@@ -54,4 +44,12 @@ export const publicRoutes = [
         path: TIMETABLE_ROUTE,
         Component: TimeTable
     },
+    {
+        path: CONTACT_ROUTE,
+        Component: ContactInfo
+    },
+    {
+        path: LOW_ROUTE,
+        Component: FitnessClubRules
+    }
 ]

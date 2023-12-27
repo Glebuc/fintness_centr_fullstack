@@ -4,54 +4,103 @@ const jwt = require('jsonwebtoken')
 const {User, Abonement} = require('../models/models')
 
 
-const generateJwt = (id, email, role) => {
-    return jwt.sign(
-        {id, email, role},
-        process.env.SECRET_KEY,
-        {expiresIn: '24h'}
-    )
-}
-
-
 class UserController {
-
-
-    async registration(req, res, next) {
-        const {password_user, phone_user, gender_user, fio_user, email_user, age_user, is_admin} = req.body
-        if (!password_user || !phone_user || !gender_user || !fio_user || !email_user || !age_user || !is_admin || !age_user) {
-            return next(ApiError.badRequest("Введены некорректные данные"))
-        }
-        const candidate = await User.findOne({where:{email_user}})
-        if (candidate) {
-            return next(ApiError.badRequest("Пользователь уже существует"))
-        }
-        const secretPassword = await bcrypt.hash(password_user, 5)
-        const user = await User.create({password_user: secretPassword, phone_user, gender_user, fio_user, email_user, age_user, is_admin})
-        const abonement = await Abonement.create({userIdUser: user.id_user})
-        const token = generateJwt(user.id_user, user.email_user, user.is_admin)
-        return res.json({token})
+    static async registerUser(req, res) {
+      try {
+        const {
+          email_user,
+          password_user,
+          fio_user,
+          age_user,
+          gender_user,
+          birth_user,
+          phone_user,
+        } = req.body;
+  
+        const hashedPassword = await bcrypt.hash(password_user, 10);
+  
+        const newUser = await User.create({
+          email_user,
+          password_user: hashedPassword,
+          fio_user,
+          age_user,
+          gender_user,
+          birth_user,
+          phone_user,
+        });
+  
+        res.status(201).json({ message: 'Пользователь зарегистрирован', user: newUser });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Ошибка при регистрации пользователя' });
+      }
     }
 
+    static async getAll(req, res) {
+      try {
+        const users = await User.findAll();
+        return res.json(users);
+      } catch (error) {
+        return res.status(500).json({ error: error.message });
+      }
+    }
 
-    async login(req, res, next) {
-        const {email_user, password_user} = req.body
-        const user = await User.findOne({where: {email_user}})
+    static async loginUser(req, res) {
+      try {
+        const { email_user, password_user } = req.body;
+  
+        const user = await User.findOne({ where: { email_user } });
+  
         if (!user) {
-            return next(ApiError.internal('Пользователь не найден'))
+          return res.status(404).json({ message: 'Пользователь не найден' });
         }
-        let comparePassword = bcrypt.compareSync(password_user, user.password_user)
-        if (!comparePassword) {
-            return next(ApiError.internal('Указан неверный пароль'))
+  
+        const passwordMatch = await bcrypt.compare(password_user, user.password_user);
+  
+        if (!passwordMatch) {
+          return res.status(401).json({ message: 'Неверный пароль' });
         }
-        const token = generateJwt(user.user_id, user.email_user, user.is_admin)
-        return res.json({token})
+  
+        const token = jwt.sign(
+          { email_user: user.email_user, id_user: user.id_user },
+          'secret_key',
+          { expiresIn: '3h' }
+        );
+  
+        res.status(200).json({ token });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Ошибка при попытке входа' });
+      }
     }
-
-
-    async check(req, res, next) {
-        const token = generateJwt(req.user.id_user, req.user.email_user, req.user.is_admin)
-        return res.json({token})
+  
+    static async checkToken(req, res, next) {
+      try {
+        const token = req.headers.authorization;
+  
+        if (!token) {
+          return res.status(401).json({ message: 'Отсутствует токен авторизации' });
+        }
+  
+        jwt.verify(token, 'secret_key', async (err, decodedToken) => {
+          if (err) {
+            return res.status(403).json({ message: 'Недействительный токен' });
+          }
+  
+          const user = await User.findOne({ where: { id_user: decodedToken.id_user } });
+  
+          if (!user) {
+            return res.status(404).json({ message: 'Пользователь не найден' });
+          }
+  
+          req.user = user;
+          next();
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Ошибка при проверке токена' });
+      }
     }
-}
-
-module.exports = new UserController()
+  }
+  
+  module.exports = UserController;

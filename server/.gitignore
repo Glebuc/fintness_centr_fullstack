@@ -23,6 +23,10 @@
 !static/trainer5.jpg
 !static/trainer6.jpg
 
+!static/gallery*
+
+
+
 # misc
 .DS_Store
 .env.local

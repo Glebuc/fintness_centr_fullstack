@@ -148,6 +148,66 @@ addDataToDatabase()
         descript_news: 'Описание новости 2',
         img: 'image2.jpg'
       },
+      {
+        title_news: 'Новость 3',
+        descript_news: 'Описание новости 3',
+        img: 'gallery1.jpg'
+      },
+      {
+        title_news: 'Новость 4',
+        descript_news: 'Описание новости 4',
+        img: 'gallery2.webp'
+      },
+      {
+        title_news: 'Новость 5',
+        descript_news: 'Описание новости 5',
+        img: 'gallery3.jpg'
+      },
+      {
+        title_news: 'Новость 6',
+        descript_news: 'Описание новости 6',
+        img: 'gallery4.png'
+      },
+      {
+        title_news: 'Новость 7',
+        descript_news: 'Описание новости 7',
+        img: 'gallery5.jpg'
+      },
+      {
+        title_news: 'Новость 8',
+        descript_news: 'Описание новости 8',
+        img: 'gallery6.webp'
+      },
+      {
+        title_news: 'Новость 9',
+        descript_news: 'Описание новости 9',
+        img: 'gallery7.jpg'
+      },
+      {
+        title_news: 'Новость 10',
+        descript_news: 'Описание новости 10',
+        img: 'gallery8.jpg'
+      },
+      {
+        title_news: 'Новость 11',
+        descript_news: 'Описание новости 11',
+        img: 'gallery1.jpg'
+      },
+      {
+        title_news: 'Новость 12',
+        descript_news: 'Описание новости 12',
+        img: 'gallery3.jpg'
+      },
+      {
+        title_news: 'Новость 13',
+        descript_news: 'Описание новости 13',
+        img: 'gallery5.jpg'
+      },
+      {
+        title_news: 'Новость 14',
+        descript_news: 'Описание новости 14',
+        img: 'gallery8.jpg'
+      },
     ];
   
     try {

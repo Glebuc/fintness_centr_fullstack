@@ -1,13 +1,18 @@
 import React from 'react'
-import Header from '../components/Header/Header';
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../components/Admin/Sidebar';
+import { withAuth } from './Wrapper';
 
 
 const UserPanel = () => {
   return (
-    <div>
-      <h1>Страница пользователя</h1>
-    </div>
+      <div className="flex h-screen bg-gray-200">
+        <Sidebar />
+        <div className="flex-1 p-4 bg-white">
+          <div className='mt-5'><Outlet /></div>
+        </div>
+      </div>
   );
 }
 
-export default UserPanel;
+export default withAuth(UserPanel);

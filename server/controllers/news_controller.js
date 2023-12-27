@@ -57,16 +57,15 @@ class NewsController {
 
 
     async deleteOne (req, res) {
-        const { id_news } = req.params; // Получаем ID новости из запроса
-
+        const { id_news } = req.params; 
         try {
-            const news = await News.findByPk(id_news); // Находим новость по ID
+            const news = await News.findByPk(id_news); 
 
             if (!news) {
             return res.status(404).send('Новость не найдена');
             }
 
-            await news.destroy(); // Удаляем новость из базы данных
+            await news.destroy(); 
 
             return res.status(200).send('Новость успешно удалена');
         } catch (error) {

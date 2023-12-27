@@ -54,18 +54,12 @@ const Footer: React.FC = () => {return (
               aria-label="Footer About Nav"
               className="mt-6 flex flex-col space-y-1"
             >
-              <a className="text-white transition hover:text-white/60" href="/">
-                О нас
-              </a>
-              <a className="text-white transition hover:text-white/60" href="/">
-                Услуги
-              </a>
-              <a className="text-white transition hover:text-white/60" href="/">
-                Галлерея
-              </a>
-              <a className="text-white transition hover:text-white/60" href="/">
+              <Link className="text-white transition hover:text-white/60" to="/news">
+                Новости
+              </Link>
+              <Link className="text-white transition hover:text-white/60" to="/trainers">
                 Тренера
-              </a>
+              </Link>
             </nav>
           </div>
   
@@ -76,17 +70,17 @@ const Footer: React.FC = () => {return (
               aria-label="Footer Support Nav"
               className="mt-6 flex flex-col space-y-1"
             >
-              <a className="text-white transition hover:text-white/60" href="/">
+              <Link className="text-white transition hover:text-white/60" to="/contact">
                 Контакты
-              </a>
+              </Link>
   
-              <a className="text-white transition hover:text-white/60" href="/">
+              <Link className="text-white transition hover:text-white/60" to="/low">
                 Правила
-              </a>
+              </Link>
   
-              <a className="text-white transition hover:text-white/60" href="/">
+              <Link className="text-white transition hover:text-white/60" to="/time">
                 Расписание
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -100,9 +94,9 @@ const Footer: React.FC = () => {return (
   
           Сайт разработан
           <Link
-            to="/admin"
+            to="/login"
             className="text-white transition hover:text-purple-300/75"
-            ><br /> (-___-)</Link>
+            ><br /> ПЕРЕЙТИ В АДМИН ПАНЕЛЬ</Link>
         </p>
       </div>
     </div>

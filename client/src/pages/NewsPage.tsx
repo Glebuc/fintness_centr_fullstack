@@ -51,10 +51,10 @@ const News: React.FC = () => {
 
   return (
     <div>
-      <section className="m-12 text-gray-800">
-        <div className="block rounded-lg  shadow-lg bg-white">
+      <section className="m-4 md:m-12 text-gray-800">
+        <div className="block rounded-lg shadow-lg bg-white">
           <div className="flex flex-wrap items-center justify-center">
-            <div className="grow-0 shrink-0 basis-auto w-full h-full lg:w-6/12 xl:w-8/12">
+            <div className="w-full lg:w-6/12 xl:w-8/12">
               {loading ? (
                 <h1 className="text-center">Загрузка...</h1>
               ) : (
@@ -63,25 +63,25 @@ const News: React.FC = () => {
                     <>
                       <ul>
                         {news.map((item: NewsItem) => (
-                          <li key={item.id_news} className="flex m-5">
-                            <img className="w-96 mx-11" src={'http://localhost:7000/' + item.img} alt={item.title_news} />
-                            <div>
+                          <li key={item.id_news} className="flex flex-col md:flex-row m-5">
+                            <img className="w-full md:w-72 h-auto mx-auto md:mx-11" src={'http://localhost:7000/' + item.img} alt={item.title_news} />
+                            <div className="mt-3 md:mt-0">
                               <h2 className="text-2xl">{item.title_news}</h2>
-                              <p>{item.descript_news}</p>
+                              <p className="mt-2 md:ml-4">{item.descript_news}</p>
                             </div>
-                            <hr />
+                            <hr className="w-full mt-4 md:hidden" />
                           </li>
                         ))}
                       </ul>
                       <div className="flex justify-center mt-5">
                         <button className="mx-4 p-2 text-2xl" onClick={handlePrevPage} disabled={currentPage === 1}>
-                        🢀
+                          🢀
                         </button>
                         <span className='p-2'>
-                            {currentPage} из {totalPages}
+                          {currentPage} из {totalPages}
                         </span>
                         <button className="mx-4 p-2 text-2xl" onClick={handleNextPage} disabled={currentPage === totalPages}>
-                        🢂
+                          🢂
                         </button>
                       </div>
                     </>
