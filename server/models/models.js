@@ -1,5 +1,6 @@
 const sequelize = require('../db')
 const {DataTypes} = require('sequelize')
+const bcrypt = require('bcrypt');
 
 
 const User = sequelize.define('user', {
@@ -395,6 +396,9 @@ async function createUserIfNotExists(userData) {
       console.log("Пользователь уже существует в базе данных.");
       return existingUser;
     } else {
+      const hashedPassword = await bcrypt.hash(userData.password_user, 10);
+      userData.password_user = hashedPassword;
+
       const newUser = await User.create(userData);
       console.log("Пользователь успешно создан:", newUser.toJSON());
       return newUser; 
@@ -405,9 +409,10 @@ async function createUserIfNotExists(userData) {
   }
 }
 
+
 const userData = {
   email_user: "admin@admin.ru",
-  password_user: "admin",
+  password_user: "admin", 
   fio_user: "Дерюгин Глеб Сергеевич",
   age_user: 23,
   gender_user: "men",
@@ -416,10 +421,10 @@ const userData = {
 
 createUserIfNotExists(userData)
   .then(user => {
-    console.log('Данные успешно добавлены');
+    console.log("Админ успешно добавлен")
   })
   .catch(error => {
-    console.error('Ошибка при добавлении данных:', error);
+    console.log(`Ошибка добавления ${error}`)
   });
 
 
